@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MainSceneController()
+comment1.params=
+comment1.target=void\ initialize()
+comment2.params=stage
+comment2.target=void\ prepareStageEvents(javafx.stage.Stage)
+comment2.text=\ In\ order\ to\ catch\ stage\ events\ (the\ main\ example\ being\ the\ close\ (X)\ button\ being\ clicked)\ we\ need\r\n\ to\ setup\ event\ handlers.\ This\ happens\ after\ the\ constructor\ and\ the\ initialize\ methods.\ Once\ this\ is\r\ncomplete,\ the\ scene\ is\ fully\ loaded\ and\ ready\ to\ use.
+comment3.params=we
+comment3.target=void\ handle(javafx.stage.WindowEvent)
+comment4.params=
+comment4.target=void\ exitClicked()
+comment5.params=
+comment5.target=void\ listViewClicked()
+comment5.text=\ This\ method,\ set\ in\ SceneBuilder\ to\ occur\ when\ the\ listView\ is\ clicked,\ establishes\ which\r\nitem\ in\ the\ view\ is\ currently\ selected\ (if\ any)\ and\ outputs\ it\ to\ the\ console.
+comment6.params=isbnRef
+comment6.target=void\ openNewScene(java.lang.String)
+numComments=7
