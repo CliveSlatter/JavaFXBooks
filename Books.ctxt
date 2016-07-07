@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=ISBN\ title\ authorfn\ authorsn\ genre\ category\ language\ rating
-comment0.target=Books(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ float)
+comment0.params=ISBN\ title\ authorfn\ authorsn\ genre\ year\ category\ language\ rating
+comment0.target=Books(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ java.lang.String,\ float)
 comment0.text=Next,\ prepare\ a\ constructor\ that\ takes\ each\ of\ the\ fields\ as\ arguements.
 comment1.params=
 comment1.target=java.lang.String\ toString()
@@ -10,4 +10,8 @@ comment2.target=void\ readAll(java.util.List)
 comment2.text=\ Different\ models\ will\ require\ different\ read\ and\ write\ methods.\ Here\ is\ an\ example\ 'loadAll'\ method\ \r\nwhich\ is\ passed\ the\ target\ list\ object\ to\ populate.
 comment3.params=isbnRef
 comment3.target=Books\ getById(java.lang.String)
-numComments=4
+comment4.params=
+comment4.target=void\ addNew()
+comment5.params=
+comment5.target=void\ save()
+numComments=6

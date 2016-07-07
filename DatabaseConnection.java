@@ -56,6 +56,17 @@ public class DatabaseConnection {
         }
     }
 
+    public void executeUpdate(PreparedStatement statement)
+    {               
+        try {            
+            statement.executeUpdate();                       
+        }
+        catch (SQLException queryexception) 
+        {
+            System.out.println("Database update error: " + queryexception.getMessage());
+        }
+    }
+    
     /* Finally, this method is called when the application is terminating to close the database connection. */
     public void disconnect()
     {

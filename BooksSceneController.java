@@ -7,6 +7,7 @@ import javafx.scene.control.TitledPane;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import java.util.List;
+import java.sql.PreparedStatement;
 
 public class BooksSceneController
 {
@@ -17,8 +18,7 @@ public class BooksSceneController
     @FXML   private TitledPane backgroundPane;    
     @FXML   private Button saveID;
     @FXML   private Button deleteID;
-    @FXML   private Button nextID;
-    @FXML   private Button previousID;
+    @FXML   private Button newID;
     @FXML   private Button addID;
     @FXML   private Button backButton;
     @FXML   private TextField titleID;
@@ -66,8 +66,7 @@ public class BooksSceneController
             assert saveID != null: "Could not find ";
             assert deleteID != null: "Could not find ";
             assert addID != null: "Could not find ";
-            assert nextID != null: "Could not find ";
-            assert previousID != null: "Could not find ";
+            assert newID != null: "Could not find ";
             assert titleID != null: "Could not find ";
             assert authorID != null: "Could not find ";
             assert publisherID != null: "Could not find ";
@@ -118,6 +117,7 @@ public class BooksSceneController
         this.parent = parent;
     }
     
+   
     /*
      * The loadItem call from the mainSceneController class (openNewScene method) using the ISBN reference.
      * This in turn calls the getById method in the Books class using the ISBN via the isbnRef parameter. This then
@@ -132,29 +132,47 @@ public class BooksSceneController
         genreID.setText(books.genre);
         categoryID.setText(books.category);
         languageID.setText(books.language);
-        //ratingID.setFloat(books.rating);
+        String y = Integer.toString(books.year);
+        yearID.setText(y);
+        String r = Float.toString(books.rating);
+        ratingID.setText(r);
         isbnID.setText(books.ISBN);
         
-        /*List<Category> targetList = categoryChoiceBox.getItems();
-
-        for(Category c : targetList)
-        {
-            if (c.id == thing.categoryId)
-            {
-                categoryChoiceBox.getSelectionModel().select(c);
-            }                
-        }
-        */
     }
-    
+
+   
     @FXML void saveClicked() 
     {
-        System.out.println("Save button was clicked");    
+        System.out.println("Save button was clicked");  
+        String author = authorID.getText();
+        String authorSplit[] = author.split("\\s+");
+        books.ISBN = isbnID.getText();
+        books.title = titleID.getText();
+        books.authorfn = authorSplit[0];
+        books.authorsn = authorSplit[1];
+        books.year = Integer.parseInt(yearID.getText());
+        books.genre = genreID.getText();
+        books.category = categoryID.getText();
+        books.language = languageID.getText();
+        books.rating = Float.parseFloat(ratingID.getText());
+        
+        books.save();        
     }
     
     @FXML void addClicked() 
     {
-        System.out.println("Add button was clicked");
+        String author = authorID.getText();
+        String authorSplit[] = author.split("\\s+");
+        books.ISBN = isbnID.getText();
+        books.title = titleID.getText();
+        books.authorfn = authorSplit[0];
+        books.authorsn = authorSplit[1];
+        books.genre = genreID.getText();
+        books.category = categoryID.getText();
+        books.language = languageID.getText();
+        books.rating = Float.parseFloat(ratingID.getText());
+        books.year = Integer.parseInt(yearID.getText());
+        books.addNew();
     }
     
     @FXML void deleteClicked() 
@@ -162,15 +180,19 @@ public class BooksSceneController
         System.out.println("Delete button was clicked");
     }
     
-    @FXML void nextClicked() 
+    @FXML void newClicked() 
     {
-        System.out.println("Next button was clicked");
+        System.out.println("New button was clicked");
+        titleID.setText("");
+        authorID.setText("");
+        genreID.setText("");
+        categoryID.setText("");
+        languageID.setText("");
+        //ratingID.setFloat(books.rating);
+        isbnID.setText("");
     }
+
     
-    @FXML void previousClicked() 
-    {
-        System.out.println("Previous button was clicked");
-    }    
     @FXML void backClicked()
     {
         System.out.println("Back button was clicked");
